@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://qn4hla1knobo"]
+
+[ext_resource type="PackedScene" uid="uid://da3nnpeb8biu" path="res://scenes/player.tscn" id="1_r6yvo"]
+[ext_resource type="Script" path="res://main.gd" id="1_wkdtu"]
+[ext_resource type="PackedScene" uid="uid://bypkgxt5mng06" path="res://scenes/apple.tscn" id="3_dno0f"]
+[ext_resource type="PackedScene" uid="uid://lbqqcmy5lteh" path="res://scenes/floor_tile.tscn" id="4_5psr2"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_wkdtu")
+
+[node name="FloorTile" parent="." instance=ExtResource("4_5psr2")]
+position = Vector2(-608, -288)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Apple" parent="." instance=ExtResource("3_dno0f")]
+position = Vector2(128, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_r6yvo")]

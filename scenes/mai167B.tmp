@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://qn4hla1knobo"]
+
+[ext_resource type="PackedScene" uid="uid://da3nnpeb8biu" path="res://scenes/player.tscn" id="1_r6yvo"]
+[ext_resource type="Script" path="res://main.gd" id="1_wkdtu"]
+[ext_resource type="PackedScene" uid="uid://blsn5h70cucgw" path="res://scenes/snake_part.tscn" id="3_08yvp"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_wkdtu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(152, 128)
+zoom = Vector2(2, 2)
+
+[node name="Player" parent="." instance=ExtResource("1_r6yvo")]
+position = Vector2(178, 65)
+
+[node name="SnakeTimer" parent="." instance=ExtResource("3_08yvp")]
+position = Vector2(-182, -110)
+IS_TIMER = true
+
+[connection signal="cycle_finished" from="SnakeTimer" to="." method="_on_snake_timer_cycle_finished"]
